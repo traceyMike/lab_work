@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <!-- insert css link here -->
+    </head>
+    <body>
+    <!-- write your html content here -->
+<!-- create web page, empty unordered list, input text box, and button -->
+<!-- when user types in input form and clicks button - text should be added to list
+as a new list element, when text added to list, clear the text box -->
+    
+
+
+    <!-- web page title -->
+    <p>List Generator</p>
+
+    <input id="new-list-item-text">
+    
+    <button id="add-new-item">Add new list item</button>
+
+    <ul id="list-of-items">
+        <!-- empty list -->
+        <!-- li elements are contained within ul elements -->
+        <!-- li elements are child elements of ul elements -->
+        <!-- ul elements are containers for li elements -->
+        <!-- ul elements parents of li elements -->
+        
+    </ul>
+
+<!--  create clear button -->
+    <button id="clear-list">Clear</button>
+
+
+
+
+    <script>
+    // think which parts of page do some - important for javascript
+    // need to work with button and with the unordered list
+    // need to modify list as user enters new data
+    // label our elements - give them IDs i.e. new-list-item in html at top
+    // insert JavaScript    
+    // alert('howdy partner')
+
+    // make variable to represent elements with syntax below "let" 
+    // find the input ID new-list-item-text and making a variable in
+    // javascript to represent the html element
+    // DO NOT FORGET HASHTAGS BEFORE ELEMENT NAME IN ()
+        let newListItemTextInputElement = document.querySelector('#new-list-item-text')
+        
+        let addNewItemButtonElement = document.querySelector('#add-new-item')
+        
+        let listOfItems = document.querySelector('#list-of-items')
+        // be careful where event listener for clear button is
+        // add event listener one time when program starts running
+        let clearButton = document.querySelector('#clear-list')
+        // event listener for clear at beginning of code
+        // could also add after the other event listener
+        // once something is added to list this event listener will clear
+        // - the list of items 
+        // innerHTML of ul element is whats inside the ul in console of dev tools
+        // listOfItems in dev tools contains the ul element and everything inside
+        // This code set the innerHTML of the ul to empty stirng...
+        // thus clearing things on the webpage list when you press the clear
+        // .. button
+        // so in the function (event listener) we have the code that cleats
+        // - the listOfItems element . innerHTML of that code 
+        clearButton.addEventListener('click', function() {
+            listOfItems.innerHTML = ''
+        })
+
+        addNewItemButtonElement.addEventListener('click', function() {
+            // add an alret to make sure the code is running
+            // when it is expected to run 
+            // figure out what user entered, save it in a variable
+            // make new li items, set text to the text the user enters 
+            // clear input
+            // add the li item to the ul
+
+            //figure out what user entered, save in variable
+            // this stores whatever current value of the input is
+            let newInputText = newListItemTextInputElement.value
+            // make new li items, set text to the text user enters
+            // specify the type of element, use a valid HTML tag 
+
+            // validation
+            if (newInputText.length ==0) {
+                return // stop processing of function
+            }
+
+            if (newInputText > 50) {
+                return
+            }
+
+
+            let newListItemElement = document.createElement('li')
+            // configure the new element, set the text
+            newListItemElement.innerHTML = newInputText
+            // add li to ul , li should be contained in ul 
+            listOfItems.appendChild(newListItemElement)
+            // clear input by setting value to empty string
+            newListItemTextInputElement.value = ''
+
+        })
+        
+
+    </script>
+
+</body>
+</html>
